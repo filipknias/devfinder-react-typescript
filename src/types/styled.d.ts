@@ -3,15 +3,9 @@ import { ThemeSet } from 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-      mode: string;
-      background: {
-      light: ThemeSet;
-      dark: ThemeSet;
-    },
-    text: {
-      white: string;
-      black: string;
-    },
+    mode: string;
+    background: ThemeSet,
+    text: ThemeSet,
     colors: {
       lightBlue: string;
       darkBlue: string;
