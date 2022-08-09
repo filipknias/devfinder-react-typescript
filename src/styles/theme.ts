@@ -1,20 +1,14 @@
 import theme from 'styled-theming';
 
 export default {
-  background: {
-    light: theme('mode', {
-      light: '#1F2A48',
-      dark: '#FEFEFE'
-    }),
-    dark: theme('mode', {
-      dark: '#F5F8FF',
-      light: '#141C2F'
-    }),
-  },
-  text: {
-    white: '#E5EBF4',
-    black: '#3E434B',
-  },
+  background: theme('mode', {
+    light: '#FEFEFE',
+    dark: '#1F2A48',
+  }),
+  text: theme('mode', {
+    light: '#141C2E',
+    dark: '#E8EDF5',
+  }),
   colors: {
     lightBlue: '#0A76F2',
     darkBlue: '#275CA0',

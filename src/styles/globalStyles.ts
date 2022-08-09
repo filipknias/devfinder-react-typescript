@@ -6,6 +6,12 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: ${({ theme }) => theme.fonts.primary} , monospace;
   }
+  #root {
+    height: 100vh;
+  }
+  body {
+    background-color: ${({ theme }) => theme.background};
+  }
 `;
  
 export default GlobalStyle;
