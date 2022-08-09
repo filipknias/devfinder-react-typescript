@@ -20,13 +20,13 @@ const HeaderText = styled.h1`
 const HeaderToggler = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
   color: ${({ theme }) => theme.text};
   cursor: pointer;
+  font-size: 22px;
 `;
 
 const TogglerText = styled.span`
-  font-size: 20px;
   text-transform: uppercase;
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   letter-spacing: 1px;
