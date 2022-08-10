@@ -4,6 +4,7 @@ import theme from './styles/theme';
 import GlobalStyles from './styles/globalStyles';
 import Container from './components/Container';
 import Header from './components/Header';
+import SearchBar from './components/SearchBar';
 import { useThemeMode } from './context/ThemeModeProvider';
 
 const App: FC = () => { 
@@ -12,7 +13,10 @@ const App: FC = () => {
     <ThemeProvider theme={{ mode: themeMode, ...theme }}>
       <GlobalStyles />
       <Container>
-        <Header />
+        <div style={{ width: '100%' }}>
+          <Header />
+          <SearchBar />
+        </div>
       </Container>
     </ThemeProvider>
   );

@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100vh;
   }
   body {
-    background-color: ${({ theme }) => theme.background};
+    background-color: ${({ theme }) => theme.bodyBackground};
   }
 `;
  

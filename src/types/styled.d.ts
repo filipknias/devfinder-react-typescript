@@ -4,12 +4,14 @@ import { ThemeSet } from 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     mode: string;
-    background: ThemeSet,
-    text: ThemeSet,
-    colors: {
+    bodyBackground: ThemeSet,
+    contentBackground: ThemeSet
+    palette: {
       lightBlue: string;
       darkBlue: string;
+      white: string;
     },
+    text: ThemeSet;
     fonts: {
       primary: string;
     },
@@ -17,6 +19,8 @@ declare module 'styled-components' {
       light: number;
       medium: number;
       bold: number;
-    }
+    },
+    borderRadius: string|number;
+    contentBoxShadow: ThemeSet;
   }
 }
