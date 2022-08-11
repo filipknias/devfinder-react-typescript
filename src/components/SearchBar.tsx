@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useState, FormEvent } from 'react';
 import styled from 'styled-components';
 import { BsSearch } from 'react-icons/bs';
 
@@ -39,10 +39,20 @@ const SearchButton = styled.button`
   font-size: inherit;
 `;
 
-const SearchBar: FC = () => {
+interface Props {
+  onSubmit: (searchText: string) => void;
+}
+
+const SearchBar: FC<Props> = ({ onSubmit }) => {
   const [searchText, setSearchText] = useState<string>('');
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    onSubmit(searchText);
+  };
+
   return (
-    <SearchBarForm>
+    <SearchBarForm onSubmit={handleSubmit}>
       <BsSearch />
       <CustomInput 
         type="text"
