@@ -20,6 +20,8 @@ const App: FC = () => {
     // Reset state
     setGithubError(null);
     setGithubUser(null);
+    
+    // Search github user
     try {
       const ghUser = await getGithubUser(username);
       setGithubUser(ghUser);
@@ -35,6 +37,7 @@ const App: FC = () => {
   // TODO: make tests in components/__tests__ folder
   // TODO: add react query params when searching user
   // TODO: add breakpoints in theme and make app responsive
+  // TODO: save theme mode in local storage
 
   return (
     <ThemeProvider theme={{ mode: themeMode, ...theme }}>

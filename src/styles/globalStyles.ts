@@ -12,6 +12,10 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${({ theme }) => theme.bodyBackground};
   }
+  a {
+    color: ${({ theme }) => theme.text};
+    text-decoration: none;
+  }
 `;
  
 export default GlobalStyle;

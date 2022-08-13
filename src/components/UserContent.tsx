@@ -9,20 +9,21 @@ const ContentContainer = styled.div`
   padding: 40px;
   display: flex;
   align-items: flex-start;
-  gap: 60px;
+  gap: 50px;
   border-radius: ${({ theme }) => theme.borderRadius};
 `;
 
 const CredentialsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
   flex: 1;
 `;
 
 const AvatarImage = styled.img`
   width: 20%;
   border-radius: 50%;
+  box-shadow: ${({ theme }) => theme.contentBoxShadow};
 `;
 
 const HeaderContainer = styled.div`
@@ -90,6 +91,11 @@ const GridItem = styled.div`
   color: ${({ theme }) => theme.text};
 `;
 
+const BioDescription = styled.p`
+  color: ${({ theme }) => theme.text};
+  font-size: 20px;
+`;
+
 interface Props {
   githubUser: GithubUser;
 }
@@ -107,6 +113,7 @@ const UserContent: FC<Props> = ({ githubUser }) => {
           </HeaderContainer>
           {githubUser.twitter_username && <TwitterNickname>@{githubUser.twitter_username}</TwitterNickname>}
         </div>
+        {githubUser.bio && <BioDescription>{githubUser.bio}</BioDescription>}
         <StatsContainer>
           <div>
             <StatsLabel>Repos</StatsLabel>
@@ -128,7 +135,7 @@ const UserContent: FC<Props> = ({ githubUser }) => {
           </GridItem>
           <GridItem>
             <BsLink45Deg />
-            {githubUser.html_url}
+            <a href={githubUser.html_url} target="_blank">{githubUser.html_url}</a>
           </GridItem>
           <GridItem>
             <BsEnvelopeFill />
