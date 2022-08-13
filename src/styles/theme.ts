@@ -16,7 +16,7 @@ export default {
   },
   text: theme('mode', {
       light: '#4C4F56',
-      dark: '#B5BCD1',
+      dark: '#D7DCEC',
   }),
   fonts: {
     primary: 'Roboto Mono',

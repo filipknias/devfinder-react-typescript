@@ -11,7 +11,6 @@ const SearchBarForm = styled.form`
   background-color: ${({ theme }) => theme.contentBackground};
   margin-top: 30px;
   font-size: 20px;
-  width: 100%;
   box-shadow: ${({ theme }) => theme.contentBoxShadow};
   svg {
     color: ${({ theme }) => theme.palette.lightBlue};

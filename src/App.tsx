@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import theme from './styles/theme';
 import GlobalStyles from './styles/globalStyles';
@@ -8,6 +8,7 @@ import SearchBar from './components/SearchBar';
 import { useThemeMode } from './context/ThemeModeProvider';
 import { getGithubUser } from './services/api';
 import { GithubUser } from './types/GithubUser';
+import UserContent from './components/UserContent';
 
 const App: FC = () => { 
   const [themeMode] = useThemeMode();
@@ -30,6 +31,7 @@ const App: FC = () => {
         <div style={{ width: '100%' }}>
           <Header />
           <SearchBar onSubmit={onSubmit} />
+          {githubUser && <UserContent githubUser={githubUser} />}
         </div>
       </Container>
     </ThemeProvider>
