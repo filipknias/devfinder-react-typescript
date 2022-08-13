@@ -31,4 +31,10 @@ export default {
     light: '1px 1px 5px 0px #bdbdbd',
     dark: 'none',
   }),
+  breakpoints: {
+    xl: '1500px',
+    lg: '1000px',
+    md: '800px',
+    sm: '600px',
+  },
 };  

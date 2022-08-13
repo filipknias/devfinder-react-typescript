@@ -3,15 +3,18 @@ import styled from 'styled-components';
 export const FormContainer = styled.form`
   display: flex;
   align-items: center;
-  gap: 25px;
-  padding: 10px;
+  gap: 20px;
+  padding: 10px 20px;
   border-radius: ${({ theme }) => theme.borderRadius};
   background-color: ${({ theme }) => theme.contentBackground};
   font-size: 20px;
   box-shadow: ${({ theme }) => theme.contentBoxShadow};
   svg {
     color: ${({ theme }) => theme.palette.lightBlue};
-    padding-left: 20px;
+  }
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    font-size: 15px;
+    padding: 8px 15px;
   }
 `;
 
