@@ -1,14 +1,16 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import styled from 'styled-components';
 
 interface Props {
-  children: JSX.Element;
+  children: ReactNode;
 }
 
 const CenterContainer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
+  flex-direction: column;
+  gap: 30px;
   height: 100%;
   width: 60%;
   margin: 0 auto;

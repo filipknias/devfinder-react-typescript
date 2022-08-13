@@ -9,7 +9,6 @@ const SearchBarForm = styled.form`
   padding: 10px;
   border-radius: ${({ theme }) => theme.borderRadius};
   background-color: ${({ theme }) => theme.contentBackground};
-  margin-top: 30px;
   font-size: 20px;
   box-shadow: ${({ theme }) => theme.contentBoxShadow};
   svg {

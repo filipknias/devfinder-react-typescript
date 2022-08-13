@@ -8,10 +8,9 @@ const ContentContainer = styled.div`
   box-shadow: ${({ theme }) => theme.contentBoxShadow};
   padding: 40px;
   display: flex;
+  align-items: flex-start;
   gap: 60px;
-  margin-top: 40px;
   border-radius: ${({ theme }) => theme.borderRadius};
-  /* width: 100%; */
 `;
 
 const CredentialsContainer = styled.div`
@@ -23,7 +22,6 @@ const CredentialsContainer = styled.div`
 
 const AvatarImage = styled.img`
   width: 20%;
-  height: 100%;
   border-radius: 50%;
 `;
 
