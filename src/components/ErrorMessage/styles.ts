@@ -10,4 +10,7 @@ export const Container = styled.div`
   color: ${({ theme }) => theme.text};
   box-shadow: ${({ theme }) => theme.contentBoxShadow};
   font-size: 20px;
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    font-size: 15px;
+  }
 `;

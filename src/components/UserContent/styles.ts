@@ -5,36 +5,40 @@ export const Container = styled.div`
   box-shadow: ${({ theme }) => theme.contentBoxShadow};
   padding: 40px;
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  align-items: flex-start;
   gap: 50px;
   border-radius: ${({ theme }) => theme.borderRadius};
   @media screen and (max-width: ${({ theme }) => theme.breakpoints.md}) {
     gap: 30px;
     padding: 20px;
   }
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    flex-direction: column;
+    gap: 20px;
+  }
 `;
 
-export const HeaderSection = styled.div`
+export const Content = styled.div`
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
   gap: 40px;
-  @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    align-items: center;
-  }
+  flex: 1;
+  width: 100%;
+`;
+
+export const HeadingSection = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const Avatar = styled.img`
   width: 15%;
   border-radius: 50%;
   box-shadow: ${({ theme }) => theme.contentBoxShadow};
-`;
-
-export const NicknameWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex: 1;
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    display: none;
+  }
 `;
 
 export const Nickname = styled.h1`
@@ -112,9 +116,4 @@ export const GridItem = styled.div`
   @media screen and (max-width: ${({ theme }) => theme.breakpoints.md}) {
     font-size: 15px;
   }
-`;
-
-export const BioDescription = styled.p`
-  color: ${({ theme }) => theme.text};
-  font-size: 20px;
 `;
