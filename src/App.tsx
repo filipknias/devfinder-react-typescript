@@ -2,13 +2,13 @@ import { FC, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import theme from './styles/theme';
 import GlobalStyles from './styles/globalStyles';
-import Container from './components/Container';
-import Header from './components/Header';
-import SearchBar from './components/SearchBar';
+import Container from './components/Container/Container';
+import Header from './components/Header/Header';
+import SearchBar from './components/SearchBar/SearchBar';
 import { useThemeMode } from './context/ThemeModeProvider';
 import { getGithubUser } from './services/api';
 import { GithubUser } from './types/GithubUser';
-import UserContent from './components/UserContent';
+import UserContent from './components/UserContent/UserContent';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage';
 
 const App: FC = () => { 

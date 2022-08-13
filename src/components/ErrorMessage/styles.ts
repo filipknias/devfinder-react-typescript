@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
+export const Container = styled.div`
   background-color: ${({ theme }) => theme.contentBackground};
   border-radius: ${({ theme }) => theme.borderRadius};
   padding: 20px 30px;
@@ -11,5 +11,3 @@ const Container = styled.div`
   box-shadow: ${({ theme }) => theme.contentBoxShadow};
   font-size: 20px;
 `;
-
-export { Container };
