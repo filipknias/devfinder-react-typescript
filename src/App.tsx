@@ -1,20 +1,23 @@
-import { FC, useState } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import theme from './styles/theme';
 import GlobalStyles from './styles/globalStyles';
 import Container from './components/Container/Container';
 import Header from './components/Header/Header';
 import SearchBar from './components/SearchBar/SearchBar';
-import { useThemeMode } from './context/ThemeModeProvider';
 import { getGithubUser } from './services/api';
 import { GithubUser } from './types/api';
 import UserContent from './components/UserContent/UserContent';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage';
+import useLocalStorage from './hooks/useLocalStorage';
 
-const App: FC = () => { 
-  const [themeMode] = useThemeMode();
+export type Theme = 'dark' | 'light';
+
+const App: FC = () => {
+  const [themeMode, setThemeMode] = useState<Theme>('dark');
   const [githubUser, setGithubUser] = useState<GithubUser|null>(null);
   const [githubError, setGithubError] = useState<string|null>(null);
+  const [savedTheme, setSavedTheme] = useLocalStorage('theme', 'dark');
 
   const onSubmit = async (username: string) => {
     // Reset state
@@ -31,19 +34,23 @@ const App: FC = () => {
     }
   };
 
-  // TODO: delete theme context and make local function to switch theme and pass it to Header component
-  // TODO: put styled components into styles.ts file in each component folder
+  useEffect(() => {
+    setSavedTheme(themeMode);
+  }, [themeMode]);
+
+  useEffect(() => {
+    if (savedTheme) setThemeMode(savedTheme);
+  }, []);
+
   // TODO: seperate some sections from UserContent component and make them into components placed in UserContent components folder
   // TODO: make tests in components/__tests__ folder
   // TODO: add react query params when searching user
-  // TODO: add breakpoints in theme and make app responsive
-  // TODO: save theme mode in local storage
 
   return (
     <ThemeProvider theme={{ mode: themeMode, ...theme }}>
       <GlobalStyles />
       <Container>
-        <Header />
+        <Header themeMode={themeMode} setThemeMode={setThemeMode} />
         <SearchBar onSubmit={onSubmit} />
         {githubUser && <UserContent githubUser={githubUser} />}
         {githubError && <ErrorMessage errorMessage={githubError} />}

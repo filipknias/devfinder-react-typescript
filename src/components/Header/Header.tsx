@@ -1,13 +1,16 @@
-import { FC } from 'react';
+import { FC, Dispatch, SetStateAction } from 'react';
 import { Container, Heading, Toggler, TogglerText } from './styles';
 import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs';
-import { useThemeMode } from '../../context/ThemeModeProvider';
+import { Theme } from '../../App';
 
-const Header: FC = () => {
-  const [themeMode, setThemeMode] = useThemeMode();
+interface Props {
+  themeMode: string;
+  setThemeMode: Dispatch<SetStateAction<Theme>>;
+}
 
+const Header: FC<Props> = ({ themeMode, setThemeMode }) => {
   const toggleTheme = () => {
-    setThemeMode((theme: any) => theme === 'light' ? 'dark' : 'light');
+    setThemeMode((theme) => theme === 'light' ? 'dark' : 'light');
   };
 
   return (
