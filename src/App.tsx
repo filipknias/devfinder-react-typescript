@@ -10,6 +10,7 @@ import { GithubUser } from './types/api';
 import UserContent from './components/UserContent/UserContent';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage';
 import useLocalStorage from './hooks/useLocalStorage';
+import { useSearchParams } from 'react-router-dom';
 
 export type Theme = 'dark' | 'light';
 
@@ -18,20 +19,14 @@ const App: FC = () => {
   const [githubUser, setGithubUser] = useState<GithubUser|null>(null);
   const [githubError, setGithubError] = useState<string|null>(null);
   const [savedTheme, setSavedTheme] = useLocalStorage('theme', 'dark');
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const onSubmit = async (username: string) => {
     // Reset state
     setGithubError(null);
     setGithubUser(null);
-    
-    // Search github user
-    try {
-      const ghUser = await getGithubUser(username);
-      setGithubUser(ghUser);
-    } catch (err: any) {
-      const errorMessage = err.response.data.message;
-      setGithubError(errorMessage);
-    }
+    // Set search params
+    setSearchParams({ username });
   };
 
   useEffect(() => {
@@ -42,9 +37,24 @@ const App: FC = () => {
     if (savedTheme) setThemeMode(savedTheme);
   }, []);
 
-  // TODO: seperate some sections from UserContent component and make them into components placed in UserContent components folder
+  useEffect(() => {
+    const userRequest = async () => {
+      // Search github user
+      try {
+        const username = searchParams.get('username');
+        if (username) {
+          const ghUser = await getGithubUser(username);
+          setGithubUser(ghUser);
+        }
+      } catch (err: any) {
+        const errorMessage = err.response.data.message;
+        setGithubError(errorMessage);
+      }
+    };
+    userRequest();
+  }, [searchParams]);
+
   // TODO: make tests in components/__tests__ folder
-  // TODO: add react query params when searching user
 
   return (
     <ThemeProvider theme={{ mode: themeMode, ...theme }}>
