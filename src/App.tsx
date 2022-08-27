@@ -7,7 +7,7 @@ import Header from './components/Header/Header';
 import SearchBar from './components/SearchBar/SearchBar';
 import { useThemeMode } from './context/ThemeModeProvider';
 import { getGithubUser } from './services/api';
-import { GithubUser } from './types/GithubUser';
+import { GithubUser } from './types/api';
 import UserContent from './components/UserContent/UserContent';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage';
 

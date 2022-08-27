@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { GithubUser } from '../../types/GithubUser';
+import { GithubUser } from '../../types/api';
 import { BsFillGeoAltFill, BsLink45Deg, BsEnvelopeFill, BsTwitter } from 'react-icons/bs';
 import * as Styles from './styles';
 

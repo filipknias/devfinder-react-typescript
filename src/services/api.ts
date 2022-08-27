@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GithubUser } from '../types/GithubUser';
+import { GithubUser } from '../types/api';
 const BASE_URL = 'https://api.github.com';
 
 export const getGithubUser = async (username: string): Promise<GithubUser> => {
