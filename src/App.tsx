@@ -22,6 +22,7 @@ const App: FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const onSubmit = async (username: string) => {
+    if (githubUser && githubUser.login === username) return;
     // Reset state
     setGithubError(null);
     setGithubUser(null);
